@@ -4,6 +4,9 @@ import com.luol.carmanagement.entity.AccessRecord;
 import com.luol.carmanagement.repository.AccessRecordRepository;
 import com.luol.carmanagement.service.AccessRecordService;
 import jakarta.annotation.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -22,5 +25,11 @@ public class AccessRecordServiceImpl implements AccessRecordService {
         // 判定是否为区域用户车辆 若否则为临时车辆  若是则关联对应信息
 
         accessRecordRepository.save(accessRecord);
+    }
+
+    @Override
+    public Page<AccessRecord> getAccessRecordList(Integer pageNum, Integer size) {
+        PageRequest pageRequest = PageRequest.of(pageNum, size, Sort.by("createTime").descending());
+        return accessRecordRepository.findAll(pageRequest);
     }
 }

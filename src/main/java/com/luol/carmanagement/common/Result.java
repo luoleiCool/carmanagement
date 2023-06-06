@@ -19,7 +19,7 @@ public class Result {
     /**
      * 是否成功
      **/
-    private Boolean isSuccess;
+    private Boolean succsess;
     /**
      * 错误信息
      **/

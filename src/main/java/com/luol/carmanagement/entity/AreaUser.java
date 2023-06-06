@@ -22,7 +22,7 @@ public class AreaUser {
     /**
      * 关联区域信息
      */
-    private String areaId;
+    private Integer areaId;
 
     /**
      * 用户名称
@@ -34,12 +34,15 @@ public class AreaUser {
      */
     private String tel;
 
+    /**
+     * 车牌号码
+     */
+    private String carNo;
 
     /**
-     * 密码
+     * 创建时间
      */
-    private String password;
-
+    private String createTime;
 
 
 }

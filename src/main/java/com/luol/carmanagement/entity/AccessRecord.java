@@ -25,9 +25,9 @@ public class AccessRecord {
     private String areaCarNo;
 
     /**
-     * 区域车辆id
+     * 区域id
      */
-    private Long areaCarId;
+    private Long areaId;
 
     /**
      * 记录创建时间
@@ -38,5 +38,6 @@ public class AccessRecord {
      * :0：出 \  1：入
      */
     private Integer inOrOut = 0;
+
 
 }

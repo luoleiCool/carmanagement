@@ -1,14 +1,9 @@
 package com.luol.carmanagement.repository;
 
-import com.luol.carmanagement.entity.SystemLog;
+import com.luol.carmanagement.entity.Area;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- *
- * @author luolei
- */
 @Repository
-public interface SystemLogRepository extends JpaRepository<SystemLog, Integer> {
+public interface AreaRepository extends JpaRepository<Area, Integer> {
 }

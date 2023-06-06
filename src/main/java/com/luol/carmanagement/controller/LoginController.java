@@ -5,10 +5,9 @@ import com.luol.carmanagement.common.Result;
 import com.luol.carmanagement.annotation.ActionLog;
 import com.luol.carmanagement.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  ** 登录
@@ -24,11 +23,15 @@ public class LoginController {
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ActionLog(description = "登录")
-    public Result login(@RequestParam ("userName") String userName,@RequestParam ("password") String password){
-        // 登录验证
-        loginService.userLogin(userName,password);
+    public Result login(@RequestBody Map<String,Object> map){
+        String userName = "";
+        String password = "";
 
-        return Result.ok();
+        userName = String.valueOf(map.get("name"));
+        password = String.valueOf(map.get("password"));
+
+        // 登录验证
+        return Result.ok(loginService.userLogin(userName,password));
     }
 
 }

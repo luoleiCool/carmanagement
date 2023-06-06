@@ -42,4 +42,9 @@ public class Area {
      */
     private Integer areaParkingNum;
 
+    /**
+     * 创建时间
+     */
+    private String createTime;
+
 }

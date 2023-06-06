@@ -7,6 +7,7 @@ import com.luol.carmanagement.entity.AreaUser;
 import com.luol.carmanagement.entity.SystemUser;
 import com.luol.carmanagement.repository.SystemUserRepository;
 import com.luol.carmanagement.service.LoginService;
+import com.luol.carmanagement.utils.TokenUtils;
 import jakarta.annotation.Resource;
 import org.springframework.data.util.Optionals;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,6 @@ public class LoginServiceImpl implements LoginService {
             Console.log(JSON.toJSONString(systemUser));
         }
         // 登录成功生成token信息返回
-
-        return null;
+        return TokenUtils.getToken(String.valueOf(systemUser.getId()), systemUser.getPassword());
     }
 }

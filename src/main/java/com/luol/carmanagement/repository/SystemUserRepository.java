@@ -16,4 +16,11 @@ public interface SystemUserRepository extends JpaRepository<SystemUser, Integer>
      * @return
      */
     SystemUser findSystemUserByUserNameAndPassword(String userName, String password);
+
+    /**
+     * 查询用户信息
+     * @param id
+     * @return
+     */
+    SystemUser findSystemUserById(Integer id);
 }

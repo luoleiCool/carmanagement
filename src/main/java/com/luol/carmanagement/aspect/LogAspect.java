@@ -73,7 +73,7 @@ public class LogAspect {
         data.put("createTime", DateUtil.format(new Date(),"yyyy-MM-dd HH:mm:ss"));
         //数据落库
         systemLogRepository.save(BeanUtil.mapToBean(data, SystemLog.class,true, CopyOptions.create()));
-        log.info(JSON.toJSONString( data));
+        log.info(JSON.toJSONString(data));
         return result;
     }
 

@@ -40,12 +40,12 @@ public class SystemLog {
     private String description;
 
     /**
-     * 返回参数
+     * 耗时（ms）
      */
     private String consumeTime;
 
     /**
-     * 消耗总时间
+     * 返回参数
      */
     private String result;
 

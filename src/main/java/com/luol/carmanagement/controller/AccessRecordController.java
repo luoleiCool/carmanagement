@@ -6,10 +6,9 @@ import com.luol.carmanagement.entity.AccessRecord;
 import com.luol.carmanagement.annotation.ActionLog;
 import com.luol.carmanagement.service.AccessRecordService;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * 出入记录
@@ -22,11 +21,6 @@ public class AccessRecordController {
     @Resource
     public AccessRecordService accessRecordService;
 
-    @RequestMapping(method = RequestMethod.GET,path = "/get")
-    public Result getAccessRecordList(){
-
-        return Result.ok();
-    }
 
     /**
      * 添加车辆出入记录
@@ -39,6 +33,19 @@ public class AccessRecordController {
         accessRecord.setAreaCarNo(carNo);
         accessRecordService.addAccessRecord(accessRecord);
         return Result.ok();
+    }
+
+
+    /**
+     * 分页查询区域
+     * @return
+     */
+    @RequestMapping("/getAccessRecordList")
+    @ActionLog(description = "分页查询出入记录")
+    public Result getAccessRecordList(@RequestBody Map<String,Object> map){
+        Integer pageNum = (Integer) map.get("pageNum");
+        Integer size = (Integer) map.get("size");
+        return Result.ok(accessRecordService.getAccessRecordList(pageNum,size));
     }
 
 }

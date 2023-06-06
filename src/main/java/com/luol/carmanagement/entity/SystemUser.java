@@ -21,8 +21,20 @@ public class SystemUser {
     private Long id;
 
 
+    /**
+     * 用户名称
+     */
     private String userName;
 
 
+    /**
+     * 密码
+     */
     private String password;
+
+
+    /**
+     * 创建时间
+     */
+    private String createTime;
 }
